@@ -17,7 +17,7 @@ import { Theming } from '../styles/theming';
 import { scale, verticalScale } from '../utils/sizeScaler';
 import { isValidEmail } from '../utils/validationHelpers';
 import HomeScreen from './HomeScreen';
-// import CrossCommLogo from '../assets/CrossCommLogo.svg';
+import CrossCommLogo from '../assets/CrossCommLogo.svg';
 
 export default function Login() {
 	const navigation = useNavigation();
@@ -41,20 +41,15 @@ export default function Login() {
 
 
 	return (
-		<View>
-			{/* <View
+		<View >
+			<View
 				style={{
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}
 			>
-				<View 
-					style={styles.logoWrapper}
-				> */}
-			{/* <CrossCommLogo /> */}
-			{/* </View> */}
-			{/* <CareFillerLogoText /> */}
-			{/* </View> */}
+				<CrossCommLogo />
+			</View>
 			<View 
 				style={styles.wrapper}
 			>
@@ -148,7 +143,6 @@ const styles = StyleSheet.create({
 		height: '100%',
 	},
 	logoWrapper: {
-		marginBottom: verticalScale(24),
 		alignItems: 'center',
 	},
 	buttonsWrapper: {
