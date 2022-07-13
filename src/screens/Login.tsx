@@ -3,7 +3,6 @@ import React, {
 	useState,
 } from 'react';
 import {
-	Linking,
 	Pressable,
 	StyleSheet,
 	Text,
@@ -11,16 +10,16 @@ import {
 	TextInput,
 	Button,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { RouteNames } from '../navigation/routeNames';
 import { Theming } from '../styles/theming';
 import { scale, verticalScale } from '../utils/sizeScaler';
 import { isValidEmail } from '../utils/validationHelpers';
-import HomeScreen from './HomeScreen';
 import CrossCommLogo from '../assets/CrossCommLogo.svg';
+import { Nav } from '../types/NavigationTypes';
 
 export default function Login() {
-	const navigation = useNavigation();
+	const navigation = useNavigation<Nav>();
 	const safeArea = useSafeAreaInsets();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');

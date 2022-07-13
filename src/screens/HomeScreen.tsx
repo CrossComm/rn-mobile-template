@@ -1,17 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useEffect, useState } from 'react';
+import { ApiResponse } from 'apisauce';
+import React, { useContext, useState } from 'react';
 import { View, Text, Button, Image, StyleSheet, TextInput } from 'react-native';
-import { DemoCard } from '../components/DemoCard';
 import { GlobalContext } from '../context/GlobalContext';
-import { RouteNames } from '../navigation/routeNames';
 import { api } from '../services/BaseApi';
+import { Nav } from '../types/NavigationTypes';
 import { verticalScale } from '../utils/sizeScaler';
+
+type exampleResponseData = {
+	avatar_url: string,
+	name: string,
+	login: string,
+	location: string,
+	company: string,
+}
 
 
 export default function HomeScreen() {
-	const navigation = useNavigation();
+	const navigation = useNavigation<Nav>();
 
-	const [githubContent, setGithubContent] = useState({});
+	const [githubContent, setGithubContent] = useState<exampleResponseData>();
 	const [username, setUsername] = useState('leavitdav01');
 
 	const context = useContext(GlobalContext);
@@ -23,25 +32,23 @@ export default function HomeScreen() {
 	const getAndSetData = () => {
 		void api
 			.get('/users/' + username)
-			.then(response => setGithubContent(response.data));
+			.then((response: ApiResponse<any>) => setGithubContent(response.data));
 	};
-		
-	console.log(githubContent);
 	
 	return (
 		<View style={styles.wrapper}>
 			<View style={styles.cardWrapper}>
 				<View style={styles.imageWrapper}>
 					<Image
-						source={{uri: githubContent.avatar_url}}
+						source={{uri: githubContent?.avatar_url}}
 						resizeMode="cover"
 						style={styles.avatarImage}
 					/>
 				</View>
-				<Text style={styles.nameText}>{githubContent.name}</Text>
-				<Text style={styles.usernameText}>{githubContent.login}</Text>
-				<Text style={styles.locationText}>{githubContent.location}</Text>
-				<Text style={styles.companyText}>{githubContent.company}</Text>
+				<Text style={styles.nameText}>{githubContent?.name}</Text>
+				<Text style={styles.usernameText}>{githubContent?.login}</Text>
+				<Text style={styles.locationText}>{githubContent?.location}</Text>
+				<Text style={styles.companyText}>{githubContent?.company}</Text>
 			</View>
 
 			<TextInput style={styles.textInput} onChangeText={setUsername} value={username}/>

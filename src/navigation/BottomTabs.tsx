@@ -1,12 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+import { Platform } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { Theming } from '../styles/theming';
+import { BottomTabsParamList } from '../types/NavigationTypes';
 import { verticalScale } from '../utils/sizeScaler';
 
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
 export function BottomTabs(): JSX.Element {
 	return (
@@ -31,8 +33,8 @@ export function BottomTabs(): JSX.Element {
                     
 				};
 			}}>
-			<Tab.Screen name="Home" component={HomeScreen} />
-			<Tab.Screen name="Settings" component={SettingsScreen} />
+			<Tab.Screen name="HomeScreen" component={HomeScreen} />
+			<Tab.Screen name="SettingsScreen" component={SettingsScreen} />
 		</Tab.Navigator>
 	);
 }

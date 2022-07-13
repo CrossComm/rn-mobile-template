@@ -1,13 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, Button } from 'react-native';
-import { GlobalContext } from '../context/GlobalContext';
+import React from 'react';
+import { View, Button } from 'react-native';
 import { RouteNames } from '../navigation/routeNames';
-import { api } from '../services/BaseApi';
+import { Nav } from '../types/NavigationTypes';
 
 
 export default function SettingsScreen() {
-	const navigation = useNavigation();
+	const navigation = useNavigation<Nav>();
 	
 	return (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
