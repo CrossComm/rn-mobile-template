@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { useNavigation } from '@react-navigation/native';
 import { ApiResponse } from 'apisauce';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, Image, StyleSheet, TextInput } from 'react-native';
-import { GlobalContext } from '../context/GlobalContext';
 import { api } from '../services/BaseApi';
-import { Nav } from '../types/NavigationTypes';
 import { verticalScale } from '../utils/sizeScaler';
 
 type exampleResponseData = {
@@ -18,20 +15,14 @@ type exampleResponseData = {
 
 
 export default function HomeScreen() {
-	const navigation = useNavigation<Nav>();
 
 	const [githubContent, setGithubContent] = useState<exampleResponseData>();
 	const [username, setUsername] = useState('leavitdav01');
 
-	const context = useContext(GlobalContext);
-
-	// useEffect(() => {
-	// 	getAndSetData('leavitdav01');
-	// }, []);
-
 	const getAndSetData = () => {
 		void api
 			.get('/users/' + username)
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			.then((response: ApiResponse<any>) => setGithubContent(response.data));
 	};
 	

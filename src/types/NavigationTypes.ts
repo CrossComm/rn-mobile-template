@@ -1,4 +1,3 @@
-import { CompositeScreenProps } from '@react-navigation/native';
 
 export type Nav = {
     navigate: (value: string) => void;
