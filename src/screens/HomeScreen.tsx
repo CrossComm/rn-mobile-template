@@ -22,7 +22,6 @@ export default function HomeScreen() {
 	const getAndSetData = () => {
 		void api
 			.get('/users/' + username)
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			.then((response: ApiResponse<any>) => setGithubContent(response.data));
 	};
 	

@@ -55,3 +55,7 @@ EditorConfig is used to define a common set of configurations that every editor 
 
 - sizeScaler.tx is used to help with device scaling to keep the device compatible with whatever screen size. Please use these whenever possible.
 - (React-Native-Safe-Area-Context)[https://docs.expo.dev/versions/latest/sdk/safe-area-context/] is used to help position the app around various operating system interface elements.
+
+# Navigation
+
+Navigation is handled by React Navigation V6. FOr helping handling typescript and React Navigation, see (here)[https://reactnavigation.org/docs/typescript/#annotating-usenavigation]. 
