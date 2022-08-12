@@ -49,6 +49,8 @@ EditorConfig is used to define a common set of configurations that every editor 
 
 ## Unit Testing
 
+- Done with Jest, here's the (expo guide)[https://docs.expo.dev/guides/testing-with-jest/] to follow expo's suggested conventions.
+
 ## Automated Tasks
 
 # Utils

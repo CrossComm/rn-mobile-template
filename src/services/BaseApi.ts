@@ -8,4 +8,4 @@ export const api = create({
 });
 
 // customizing headers per-request
-void api.post('/users', { name: 'steve' }, { headers: { 'x-gigawatts': '1.21' } });
+void api.post('/users', { name: 'leavitdav01' }, { headers: { 'x-gigawatts': '1.21' } });
